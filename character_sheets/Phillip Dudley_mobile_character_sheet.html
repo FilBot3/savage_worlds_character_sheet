@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phillip Dudley - Savage Worlds Character Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+
+    <!-- Sidebar is hidden by default because of the style="display:none;" setting.-->
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none;" id="mySidebar">
+      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+      <button class="w3-bar-item w3-button tablink w3-red" onclick="openStuff(event, 'CampaignInfo')">Campaign Info</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'Attributes')">Attributes</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'Skills')">Skills</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'EdgesAndHAdvances')">Edges and Advances</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'Hinderances')">Hinderances</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'Powers')">Powers</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openStuff(event, 'Weapons')">Weapons</button>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-teal">
+      <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+      <div class="w3-container">
+        <h1>Phillip Dudley</h1>
+        <h6>Savage Worlds</h6>
+      </div>
+    </div>
+
+    <div id="CampaignInfo" class="w3-container w3-border section">
+      <h2>Campaign Info</h2>
+      <p>Campaign Name:</p>
+      <p style="padding-left: 20px;">In the startings of...</p>
+      <p>Character Name: Phillip Dudley</p>
+      <p>Player Name: Phillip Dudley</p>
+      <p>Race/Species: Human</p>
+      <p>Bennies: <text id="Bennies Count">2</text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('Bennies Count')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('Bennies Count')">+</button></p>
+      <p>Conviction: Chaotic Neutral</p>
+      <p>Size: Medium</p>
+      <p>Height: 5ft 9in</p>
+      <p>Weight: 250lbs</p>
+      <p>Background:</p>
+      <p style="padding-left: 20px;"></p>
+      <p>Appearance:</p>
+      <p style="padding-left: 20px;"></p>
+    </div>
+
+    <div id="Attributes" class="w3-container w3-border section" style="display:none">
+      <h2>Combat Attributes</h2>
+      <p>Wounds: 0</p>
+      <p>Fatigue: 0</p>
+      <p>Pace: 4</p>
+      <p>Parry: 4</p>
+      <p>Toughness: 34</p>
+      <h2>General Attributes</h2>
+      <p>Agility: d4</p>
+      <p>Smarts: d4</p>
+      <p>Spirit: d4</p>
+      <p>Strength: d4</p>
+      <p>Vigor: d4</p>
+    </div>
+
+    <div id="Skills" class="w3-container w3-border section" style="display:none">
+      <h2>Skills</h2>
+      
+      <p>Athletics: d4</p>
+      
+      <p>Common Knowledge: d4</p>
+      
+      <p>Notice: d4</p>
+      
+      <p>Persuasion: d4</p>
+      
+      <p>Stealth: d4</p>
+      
+    </div>
+
+    <div id="EdgesAndHAdvances" class="w3-container w3-border section" style="display:none">
+      <h2>Edges and Advances</h2>
+
+      
+      <h3>Base Edges</h3>
+      
+      <p>Name: Kick Butt</p>
+      <p style="padding-left: 20px">Book: SWADE</p>
+      <p style="padding-left: 20px">Page: p55</p>
+      <p style="padding-left: 20px">Description: Its where I kick butt.</p>
+      
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+    </div>
+
+    <div id="Hinderances" class="w3-container w3-border section" style="display:none">
+      <h2>Hinderance</h2>
+
+      
+      <p>Name: Being Human</p>
+      <p style="padding-left: 20px">Book: SWADE</p>
+      <p style="padding-left: 20px">Page: p56</p>
+      <p style="padding-left: 20px">Description: Its where I'm pink and fleshy.</p>
+      
+    </div>
+
+    <div id="Powers" class="w3-container w3-border section" style="display:none">
+      <h2>Powers</h2>
+
+      
+      <h3>Flying</h3>
+      <p style="padding-left: 20px">PP: <text id="Flying Power Points">20</text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('Flying Power Points')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('Flying Power Points')">+</button></p>
+      <p style="padding-left: 20px">Range: 20</p>
+      <p style="padding-left: 20px">Duration: 2m</p>
+      <p style="padding-left: 20px">Effect: Sparkles shoot out.</p>
+      <p style="padding-left: 20px">Book: SWADE</p>
+      <p style="padding-left: 20px">Page: p57</p>
+      <p style="padding-left: 20px">Description: Its where I fly around.</p>
+      
+    </div>
+
+    <div id="Weapons" class="w3-container w3-border section" style="display:none">
+      <h2>Weapons</h2>
+      
+      <h3>M9 Barretta Pistol</h3>
+      <p style="padding-left: 20px;">Range: 20</p>
+      <p style="padding-left: 20px;">Damage: 20</p>
+      <p style="padding-left: 20px;">AP: 20</p>
+      <p style="padding-left: 20px;">ROF: 2</p>
+      <p style="padding-left: 20px;">Weight: 5lbs</p>
+      <p style="padding-left: 20px;">Notes:</p>
+      <p style="padding-left: 40px;">it jams a lot.</p>
+      <p style="padding-left: 20px;">Ammo: <text id="M9 Barretta Pistol Ammo Count">20</text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('M9 Barretta Pistol Ammo Count')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('M9 Barretta Pistol Ammo Count')">+</button></p>
+      <p style="padding-left: 20px;">Book: SWADE</p>
+      <p style="padding-left: 20px;">Page: p59</p>
+      
+    </div>
+
+    <script>
+      // Opens the top navigational menu.
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      // Closes the top navigational menu.
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+
+      // openStuff function is used to open a new window in a tabbed layout,
+      // and also highlights the current tab in the menu.
+      // This was shamelessly stolen from W3Schools.
+      //
+      // @param evt [HTML Event] The recently clicked object.
+      // @param sectionName [String] ID of the section to display.
+      function openStuff(evt, sectionName) {
+        var i, x, tablinks;
+        // Get all of the Elements that are named section in the class tag.
+        x = document.getElementsByClassName("section");
+        // For each found section, loop through and hide it.
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        // Grab all the tablinks, which in this case are in the side menu.
+        tablinks = document.getElementsByClassName("tablink");
+        // For each of those tablinks found, remove the w3-red class, effectibely
+        // unhighlighting it.
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        // Display the section we wanted from the menu button being clicked.
+        document.getElementById(sectionName).style.display = "block";
+        // Make that menu button now w3-red.
+        evt.currentTarget.className += " w3-red";
+        // Hide the sidebar again.
+        document.getElementById("mySidebar").style.display = "none";
+      }
+
+      // decrement_count is used to change values while in play for things like
+      // the health or ammo count of something.
+      //
+      // @param element_id [String] ID of the Element to edit.
+      function decrement_count(element_id) {
+        // Get the value of the HTML element, or inner HTML.
+        current_count = document.getElementById(element_id).innerHTML;
+        // Type-cast the value to a number, and subtract 1 from it, changing
+        // the value displayed.
+        document.getElementById(element_id).innerHTML = (Number(current_count) - 1);
+      }
+
+      // increment_count is used to change values while in play for things like
+      // the health or ammo count of something.
+      //
+      // @param element_id [String] ID of the Element to edit.
+      function increment_count(element_id) {
+        // Get the value of the HTML element, or inner HTML.
+        current_count = document.getElementById(element_id).innerHTML;
+        // Type-cast the value to a number, and subtract 1 from it, changing
+        // the value displayed.
+        document.getElementById(element_id).innerHTML = (Number(current_count) + 1);
+      }
+    </script>
+
+    <noscript>
+      Your browser does not support JavaScript. JavaScript is required for this web application.
+    </noscript>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "character_name": "Phillip Dudley",
+  "player_name": "Phillip Dudley",
+  "race_or_species": "Human",
+  "conviction": "Chaotic Neutral",
+  "size": "Medium",
+  "height": "5ft 9in",
+  "weight": "250lbs",
+  "bennies": "2",
+  "traits": {
+    "wounds": "0",
+    "fatigue": "0",
+    "pace": "4",
+    "parry": "4",
+    "toughness": "34"
+  },
+  "attributes": {
+    "agility": "d4",
+    "smarts": "d4",
+    "spirit": "d4",
+    "strength": "d4",
+    "vigor": "d4"
+  },
+  "skills": {
+    "Athletics": "d4",
+    "Common Knowledge": "d4",
+    "Notice": "d4",
+    "Persuasion": "d4",
+    "Stealth": "d4"
+  },
+  "edges_and_advances": {
+    "base_edges": {
+      "Kick Butt": {
+        "page": "p55",
+        "book": "SWADE",
+        "description": "Its where I kick butt."
+      }
+    }
+  },
+  "hindrances": {
+    "Being Human": {
+      "page": "p56",
+      "book": "SWADE",
+      "description": "Its where I'm pink and fleshy."
+    }
+  },
+  "powers": {
+    "Flying": {
+      "page": "p57",
+      "book": "SWADE",
+      "description": "Its where I fly around.",
+      "pp": "20",
+      "range": "20",
+      "duration": "2m",
+      "effect": "Sparkles shoot out."
+    }
+  },
+  "weapons": {
+    "M9 Barretta Pistol": {
+      "page": "p59",
+      "book": "SWADE",
+      "range": "20",
+      "damage": "20",
+      "ap": "20",
+      "rate_of_fire": "2",
+      "weight": "5lbs",
+      "notes": "it jams a lot.",
+      "ammunition": "20"
+    }
+  }
+}

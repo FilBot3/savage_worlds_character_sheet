@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Phillip Dudley - Savage Worlds Character Sheet</title>
+    <title><%= config['character_name'] %> - Savage Worlds Character Sheet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
@@ -23,7 +23,7 @@
     <div class="w3-teal">
       <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
       <div class="w3-container">
-        <h1>Character Name</h1>
+        <h1><%= config['character_name'] %></h1>
         <h6>Savage Worlds</h6>
       </div>
     </div>
@@ -32,148 +32,147 @@
       <h2>Campaign Info</h2>
       <p>Campaign Name:</p>
       <p style="padding-left: 20px;">In the startings of...</p>
-      <p>Character Name: Phillip Dudley</p>
-      <p>Player Name: Phillip Dudley</p>
-      <p>Race/Species: Human</p>
-      <p>Bennies: 2</p>
-      <p>Conviction: Chaotic Neutral</p>
-      <p>Size: Medium</p>
-      <p>Height: 5'9"</p>
-      <p>Weight: 250lbs</p>
+      <p>Character Name: <%= config['character_name'] %></p>
+      <p>Player Name: <%= config['player_name'] %></p>
+      <p>Race/Species: <%= config['race_or_species'] %></p>
+      <p>Bennies: <text id="Bennies Count"><%= config['bennies'] %></text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('Bennies Count')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('Bennies Count')">+</button></p>
+      <p>Conviction: <%= config['conviction'] %></p>
+      <p>Size: <%= config['size'] %></p>
+      <p>Height: <%= config['height'] %></p>
+      <p>Weight: <%= config['weight'] %></p>
       <p>Background:</p>
-      <p style="padding-left: 20px;">Just a guy who likes to play games.</p>
+      <p style="padding-left: 20px;"><%= config['character_background'] %></p>
       <p>Appearance:</p>
-      <p style="padding-left: 20px;">Just a normal, average white guy</p>
+      <p style="padding-left: 20px;"><%= config['character_appearance'] %></p>
     </div>
 
     <div id="Attributes" class="w3-container w3-border section" style="display:none">
       <h2>Combat Attributes</h2>
-      <p>Wounds: 0</p>
-      <p>Fatigue: 0</p>
-      <p>Pace: 4</p>
-      <p>Parry: 8</p>
-      <p>Toughness: 8</p>
+      <p>Wounds: <%= config['traits']['wounds'] %></p>
+      <p>Fatigue: <%= config['traits']['fatigue'] %></p>
+      <p>Pace: <%= config['traits']['pace'] %></p>
+      <p>Parry: <%= config['traits']['parry'] %></p>
+      <p>Toughness: <%= config['traits']['toughness'] %></p>
       <h2>General Attributes</h2>
-      <p>Agility: d6</p>
-      <p>Smarts: d4</p>
-      <p>Spirit: d8</p>
-      <p>Strength: d6</p>
-      <p>Vigor: d10</p>
+      <p>Agility: <%= config['attributes']['agility'] %></p>
+      <p>Smarts: <%= config['attributes']['smarts'] %></p>
+      <p>Spirit: <%= config['attributes']['spirit'] %></p>
+      <p>Strength: <%= config['attributes']['strength'] %></p>
+      <p>Vigor: <%= config['attributes']['vigor'] %></p>
     </div>
 
     <div id="Skills" class="w3-container w3-border section" style="display:none">
       <h2>Skills</h2>
-      <p>Athletics: d4</p>
-      <p>Common Knowledge: d6</p>
-      <p>Notice: d6</p>
-      <p>Persuasion: d4</p>
-      <p>Stealth: d8</p>
+      <% config['skills'].each do |name, rating| %>
+      <p><%= name %>: <%= rating %></p>
+      <% end %>
     </div>
 
     <div id="EdgesAndHAdvances" class="w3-container w3-border section" style="display:none">
       <h2>Edges and Advances</h2>
 
+      <% if config['edges_and_advances']['base_edges'] %>
       <h3>Base Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['base_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
 
+      <% if config['edges_and_advances']['novice_edges'] %>
       <h3>Novice Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['novice_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
 
+      <% if config['edges_and_advances']['seasoned_edges'] %>
       <h3>Seasoned Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['seasoned_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
 
+      <% if config['edges_and_advances']['veteran_edges'] %>
       <h3>Veteran Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['veteran_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
 
+      <% if config['edges_and_advances']['heroic_edges'] %>
       <h3>Heroic Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['heroic_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
 
+      <% if config['edges_and_advances']['legendary_edges'] %>
       <h3>Legendary Edges</h3>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['edges_and_advances']['legendary_edges'].each do |edge, data| %>
+      <p>Name: <%= edge %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
+      <% end %>
     </div>
 
     <div id="Hinderances" class="w3-container w3-border section" style="display:none">
       <h2>Hinderance</h2>
 
-      <p>Name: Kick Ass</p>
-      <p style="padding-left: 20px">Page: 89</p>
-      <p style="padding-left: 20px">Description: Makes you kick ass.</p>
+      <% config['hindrances'].each do |hindrance, data| %>
+      <p>Name: <%= hindrance %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
     </div>
 
     <div id="Powers" class="w3-container w3-border section" style="display:none">
       <h2>Powers</h2>
 
-      <h3>Flying</h3>
-      <p style="padding-left: 20px">PP: 20</p>
-      <p style="padding-left: 20px">Range: 20</p>
-      <p style="padding-left: 20px">Duration: 2</p>
-      <p style="padding-left: 20px">Effect: Ice</p>
+      <% config['powers'].each do |name, data| %>
+      <h3><%= name %></h3>
+      <p style="padding-left: 20px">PP: <text id="<%= name %> Power Points"><%= data['pp'] %></text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('<%= name %> Power Points')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('<%= name %> Power Points')">+</button></p>
+      <p style="padding-left: 20px">Range: <%= data['range'] %></p>
+      <p style="padding-left: 20px">Duration: <%= data['duration'] %></p>
+      <p style="padding-left: 20px">Effect: <%= data['effect'] %></p>
+      <p style="padding-left: 20px">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px">Page: <%= data['page'] %></p>
+      <p style="padding-left: 20px">Description: <%= data['description'] %></p>
+      <% end %>
     </div>
 
     <div id="Weapons" class="w3-container w3-border section" style="display:none">
       <h2>Weapons</h2>
-      <h3>M9 Berretta Pistol</h3>
-      <p style="padding-left: 20px;">Range: 30</p>
-      <p style="padding-left: 20px;">Damage: 6</p>
-      <p style="padding-left: 20px;">AP: 0</p>
-      <p style="padding-left: 20px;">ROF: 2</p>
-      <p style="padding-left: 20px;">Weight: 4lbs</p>
+      <% config['weapons'].each do |name, data| %>
+      <h3><%= name %></h3>
+      <p style="padding-left: 20px;">Range: <%= data['range'] %></p>
+      <p style="padding-left: 20px;">Damage: <%= data['damage'] %></p>
+      <p style="padding-left: 20px;">AP: <%= data['ap'] %></p>
+      <p style="padding-left: 20px;">ROF: <%= data['rate_of_fire'] %></p>
+      <p style="padding-left: 20px;">Weight: <%= data['weight'] %></p>
       <p style="padding-left: 20px;">Notes:</p>
-      <p style="padding-left: 40px;">Its a gun that's also a pistol!</p>
+      <p style="padding-left: 40px;"><%= data['notes'] %></p>
+      <p style="padding-left: 20px;">Ammo: <text id="<%= name %> Ammo Count"><%= data['ammunition'] %></text> <button class="w3-button w3-circle w3-red" onclick="decrement_count('<%= name %> Ammo Count')">-</button> <button class="w3-button w3-circle w3-green" onclick="increment_count('<%= name %> Ammo Count')">+</button></p>
+      <p style="padding-left: 20px;">Book: <%= data['book'] %></p>
+      <p style="padding-left: 20px;">Page: <%= data['page'] %></p>
+      <% end %>
     </div>
 
     <script>
@@ -187,19 +186,57 @@
         document.getElementById("mySidebar").style.display = "none";
       }
 
+      // openStuff function is used to open a new window in a tabbed layout,
+      // and also highlights the current tab in the menu.
+      // This was shamelessly stolen from W3Schools.
+      //
+      // @param evt [HTML Event] The recently clicked object.
+      // @param sectionName [String] ID of the section to display.
       function openStuff(evt, sectionName) {
         var i, x, tablinks;
+        // Get all of the Elements that are named section in the class tag.
         x = document.getElementsByClassName("section");
+        // For each found section, loop through and hide it.
         for (i = 0; i < x.length; i++) {
           x[i].style.display = "none";
         }
+        // Grab all the tablinks, which in this case are in the side menu.
         tablinks = document.getElementsByClassName("tablink");
+        // For each of those tablinks found, remove the w3-red class, effectibely
+        // unhighlighting it.
         for (i = 0; i < x.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
         }
+        // Display the section we wanted from the menu button being clicked.
         document.getElementById(sectionName).style.display = "block";
+        // Make that menu button now w3-red.
         evt.currentTarget.className += " w3-red";
+        // Hide the sidebar again.
         document.getElementById("mySidebar").style.display = "none";
+      }
+
+      // decrement_count is used to change values while in play for things like
+      // the health or ammo count of something.
+      //
+      // @param element_id [String] ID of the Element to edit.
+      function decrement_count(element_id) {
+        // Get the value of the HTML element, or inner HTML.
+        current_count = document.getElementById(element_id).innerHTML;
+        // Type-cast the value to a number, and subtract 1 from it, changing
+        // the value displayed.
+        document.getElementById(element_id).innerHTML = (Number(current_count) - 1);
+      }
+
+      // increment_count is used to change values while in play for things like
+      // the health or ammo count of something.
+      //
+      // @param element_id [String] ID of the Element to edit.
+      function increment_count(element_id) {
+        // Get the value of the HTML element, or inner HTML.
+        current_count = document.getElementById(element_id).innerHTML;
+        // Type-cast the value to a number, and subtract 1 from it, changing
+        // the value displayed.
+        document.getElementById(element_id).innerHTML = (Number(current_count) + 1);
       }
     </script>
 
