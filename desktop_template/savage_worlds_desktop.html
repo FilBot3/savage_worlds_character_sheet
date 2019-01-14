@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-body {
-  background-color: e6ffff;
-}
+      body {
+        background-color: e6ffff;
+      }
     </style>
   </head>
   <body>
@@ -27,27 +27,27 @@ body {
           <!-- Attributes -->
           <div class="w3-row w3-border w3-hover-border-red">
             <h4 class="w3-center">Attributes</h4>
-            <div id="Agility" class="w3-row">
+            <div id="Agility" class="w3-row w3-light-gray">
               <text id="Agility Die" class="w3-col w3-third">d4</text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Agility</text>
             </div>
-            <div id="Smarts" class="w3-row">
+            <div id="Smarts" class="w3-row w3-pale-blue">
               <text id="Smarts Die" class="w3-col w3-third">d4</text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Smarts</text>
             </div>
-            <div id="Spirit" class="w3-row">
+            <div id="Spirit" class="w3-row w3-light-gray">
               <text id="Spirit Die" class="w3-col w3-third">d4</text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Spirit</text>
             </div>
-            <div id="Strength" class="w3-row">
+            <div id="Strength" class="w3-row w3-pale-blue">
               <text id="Strength Die" class="w3-col w3-third">d4</text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Strength</text>
             </div>
-            <div id="Vigor" class="w3-row">
+            <div id="Vigor" class="w3-row w3-light-gray">
               <text id="Vigor Die" class="w3-col w3-third">d4</text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Vigor</text>
@@ -89,7 +89,7 @@ body {
           <div class="w3-row w3-border w3-hover-border-red">
             <h4 class="w3-center">Character Information</h4>
             <div id="Character Name" class="w3-row">
-              <text>Name:</text>
+              <text class="w3-text-blue">Name:</text>
               <text>Philbo Baggins</text>
             </div>
             <div id="Character Race" class="w3-row">
@@ -121,17 +121,31 @@ body {
           <div class="w3-row w3-border w3-hover-border-red">
             <h4 class="w3-center">Combat Stats</h4>
             <div>
-              <div id="Pace Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                <text id="Pace" class="w3-row">5</text>
-                <text id="Pace Text" class="w3-row">Pace</text>
+              <!-- Pace, Parry, Toughness -->
+              <div class="w3-row">
+                <div id="Pace Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
+                  <text id="Pace" class="w3-row">5</text>
+                  <text id="Pace Text" class="w3-row">Pace</text>
+                </div>
+                <div id="Parry Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
+                  <text id="Parry" class="w3-row">5</text>
+                  <text id="Parry Text" class="w3-row">Parry</text>
+                </div>
+                <div id="Toughness Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
+                  <text id="Toughness" class="w3-row">5</text>
+                  <text id="Toughness Text" class="w3-row">Toughness</text>
+                </div>
               </div>
-              <div id="Parry Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                <text id="Parry" class="w3-row">5</text>
-                <text id="Parry Text" class="w3-row">Parry</text>
-              </div>
-              <div id="Toughness Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                <text id="Toughness" class="w3-row">5</text>
-                <text id="Toughness Text" class="w3-row">Toughness</text>
+              <!-- Wounds, Fatigue -->
+              <div class="w3-row">
+                <div class="w3-half w3-border w3-round-xlarge">
+                  <text style="padding-left: 10px;">Fatigue:</text>
+                  <text>0</text>
+                </div>
+                <div class="w3-half w3-border w3-round-xlarge">
+                  <text style="padding-left: 10px;">Wounds:</text>
+                  <text>0</text>
+                </div>
               </div>
             </div>
           </div>
