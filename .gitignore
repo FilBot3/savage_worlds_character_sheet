@@ -1,3 +1,8 @@
+# Vim Files
+*~
+*.sw[a-z0-9]
+
+# Ruby Files
 *.gem
 *.rbc
 /.config
