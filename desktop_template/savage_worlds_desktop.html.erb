@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Phillip Dudley - Savage Worlds Character Sheet</title>
+    <title><%= config['character_name'] %> - Savage Worlds Character Sheet</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
     <nav>
     </nav>
     <header class="w3-center w3-khaki">
-      <h1>Phillip Dudley</h1>
+      <h1><%= config['character_name'] %></h1>
       <h4>Savage Worlds Character Sheet</h4>
     </header>
     <!-- Main Sheet -->
@@ -28,27 +28,27 @@
           <div class="w3-row w3-border w3-hover-border-red">
             <h4 class="w3-center">Attributes</h4>
             <div id="Agility" class="w3-row w3-light-gray">
-              <text id="Agility Die" class="w3-col w3-third">d4</text>
+              <text id="Agility Die" class="w3-col w3-third"><%= config['attributes']['agility'] %></text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Agility</text>
             </div>
             <div id="Smarts" class="w3-row w3-pale-blue">
-              <text id="Smarts Die" class="w3-col w3-third">d4</text>
+              <text id="Smarts Die" class="w3-col w3-third"><%= config['attributes']['smarts'] %></text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Smarts</text>
             </div>
             <div id="Spirit" class="w3-row w3-light-gray">
-              <text id="Spirit Die" class="w3-col w3-third">d4</text>
+              <text id="Spirit Die" class="w3-col w3-third"><%= config['attributes']['spirit'] %></text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Spirit</text>
             </div>
             <div id="Strength" class="w3-row w3-pale-blue">
-              <text id="Strength Die" class="w3-col w3-third">d4</text>
+              <text id="Strength Die" class="w3-col w3-third"><%= config['attributes']['strength'] %></text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Strength</text>
             </div>
             <div id="Vigor" class="w3-row w3-light-gray">
-              <text id="Vigor Die" class="w3-col w3-third">d4</text>
+              <text id="Vigor Die" class="w3-col w3-third"><%= config['attributes']['vigor'] %></text>
               <text class="w3-col w3-third">_</text>
               <text class="w3-col w3-third">Vigor</text>
             </div>
@@ -56,31 +56,13 @@
           <!-- Skills -->
           <div class="w3-row w3-border w3-hover-border-red">
             <h4 class="w3-center">Skills</h4>
-            <div id="Athletics" class="w3-row">
-              <text id="Athletics Die" class="w3-col w3-third">d4</text>
+            <% config['skills'].each do |name, rating| %>
+            <div id="<%= name %>" class="w3-row">
+              <text id="<%= name %> Die" class="w3-col w3-third"><%= rating %></text>
               <text class="w3-col w3-third">_</text>
-              <text class="w3-col w3-third">Athletics</text>
+              <text class="w3-col w3-third"><%= name %></text>
             </div>
-            <div id="Common Knowledge" class="w3-row">
-              <text id="Common Knowledge Die" class="w3-col w3-third">d4</text>
-              <text class="w3-col w3-third">_</text>
-              <text class="w3-col w3-third">Common Knowledge</text>
-            </div>
-            <div id="Notice" class="w3-row">
-              <text id="Notice Die" class="w3-col w3-third">d4</text>
-              <text class="w3-col w3-third">_</text>
-              <text class="w3-col w3-third">Notice</text>
-            </div>
-            <div id="Persuasion" class="w3-row">
-              <text id="Persuasion Die" class="w3-col w3-third">d4</text>
-              <text class="w3-col w3-third">_</text>
-              <text class="w3-col w3-third">Persuasion</text>
-            </div>
-            <div id="Stealth" class="w3-row">
-              <text id="Stealth Die" class="w3-col w3-third">d4</text>
-              <text class="w3-col w3-third">_</text>
-              <text class="w3-col w3-third">Stealth</text>
-            </div>
+            <% end %>
           </div>
         </div>
         <!-- Character Info and Gear -->
@@ -90,31 +72,31 @@
             <h4 class="w3-center">Character Information</h4>
             <div id="Character Name" class="w3-row">
               <text class="w3-text-blue">Name:</text>
-              <text>Philbo Baggins</text>
+              <text><%= config['character_name'] %></text>
             </div>
             <div id="Character Race" class="w3-row">
               <text>Race:</text>
-              <text>Human</text>
+              <text><%= config['race_or_species'] %></text>
             </div>
             <div id="Character Bennies" class="w3-row">
               <text>Bennies:</text>
-              <text>3</text>
+              <text><%= config['bennies'] %></text>
             </div>
             <div id="Character Conviction" class="w3-row">
               <text>Conviction:</text>
-              <text>Chaotic Neutral</text>
+              <text><%= config['conviction'] %></text>
             </div>
             <div id="Character Size" class="w3-row">
               <text>Size:</text>
-              <text>Medium</text>
+              <text><%= config['size'] %></text>
             </div>
             <div id="Character Height" class="w3-row">
               <text>Height:</text>
-              <text>5'9</text>
+              <text><%= config['height'] %></text>
             </div>
             <div id="Character Weight" class="w3-row">
               <text>Weight:</text>
-              <text>250lbs</text>
+              <text><%= config['weight'] %></text>
             </div>
           </div>
           <!-- Wounds, Fatigue, Incapacitate? All one section -->
@@ -124,15 +106,15 @@
               <!-- Pace, Parry, Toughness -->
               <div class="w3-row">
                 <div id="Pace Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                  <text id="Pace" class="w3-row">5</text>
+                  <text id="Pace" class="w3-row"><%= config['traits']['pace'] %></text>
                   <text id="Pace Text" class="w3-row">Pace</text>
                 </div>
                 <div id="Parry Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                  <text id="Parry" class="w3-row">5</text>
+                  <text id="Parry" class="w3-row"><%= config['traits']['parry'] %></text>
                   <text id="Parry Text" class="w3-row">Parry</text>
                 </div>
                 <div id="Toughness Block" class="w3-col w3-third w3-border w3-round-xlarge w3-center">
-                  <text id="Toughness" class="w3-row">5</text>
+                  <text id="Toughness" class="w3-row"><%= config['traits']['toughness'] %></text>
                   <text id="Toughness Text" class="w3-row">Toughness</text>
                 </div>
               </div>
@@ -140,11 +122,11 @@
               <div class="w3-row">
                 <div class="w3-half w3-border w3-round-xlarge">
                   <text style="padding-left: 10px;">Fatigue:</text>
-                  <text>0</text>
+                  <text><%= config['traits']['fatigue'] %></text>
                 </div>
                 <div class="w3-half w3-border w3-round-xlarge">
                   <text style="padding-left: 10px;">Wounds:</text>
-                  <text>0</text>
+                  <text><%= config['traits']['wounds'] %></text>
                 </div>
               </div>
             </div>
